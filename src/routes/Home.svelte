@@ -11,14 +11,19 @@
 	let data = {};
 	const getExcited = () => {
 		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://random.dog/woof.json";
-		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "";
-		fetch(path, { headers: {"x-api-key" : key} })
+		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
+		fetch(path, params)
     	.then((response) => {
       		return response.json()
     	}).then((json) => {
-			console.log(json)
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getExcited();
+					return;
+				}
+			} 
 			data = {
-				url: json[0].url,
+				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Emocionante",
 				style: "color: orange"
 			}
@@ -26,15 +31,20 @@
     	});
 	}
 	const getSad = () => {
-		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
-		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
-		fetch("https://api.thecatapi.com/v1/images/search?category_ids=2", 
-        {headers: {"x-api-key" : key}})
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=2" : "https://random.dog/woof.json";
+		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
+		fetch(path, params)
         .then((response) => {
           return response.json()
         }).then((json) => {
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getSad();
+					return;
+				}
+			} 
 			data = {
-				url: json[0].url,
+				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Tristecillo",
 				style: "color: blue"
 			}
@@ -42,16 +52,20 @@
         });
 	}
 	const getRelax = () => {
-		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
-		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
-
-		fetch("https://api.thecatapi.com/v1/images/search?category_ids=1", 
-        {headers: {"x-api-key" : key}})
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=1" : "https://random.dog/woof.json";
+		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
+		fetch(path, params)
         .then((response) => {
           return response.json()
         }).then((json) => {
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getRelax();
+					return;
+				}
+			} 
 			data = {
-				url: json[0].url,
+				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Relajado",
 				style: "color: purple"
 			}
@@ -59,15 +73,20 @@
         });
 	}
 	const getIntense = () => {
-		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
-		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
-		fetch("https://api.thecatapi.com/v1/images/search?mime_types=gif", 
-        {headers: {"x-api-key" : key}})
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?mime_types=gif" : "https://random.dog/woof.json";
+		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
+		fetch(path, params)
         .then((response) => {
           return response.json()
         }).then((json) => {
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getIntense();
+					return;
+				}
+			} 
 			data = {
-				url: json[0].url,
+				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Intenso",
 				style: "color: red"
 			}

@@ -52,9 +52,9 @@
 		align-items: center;
 	}
 	img{
-      	max-height: 250px;
-		max-width: 350px;
-		display: block;
+      max-height: 250px;
+		  max-width: 350px;
+		  display: block;
   		margin-left: auto;
   		margin-right: auto;
 	}

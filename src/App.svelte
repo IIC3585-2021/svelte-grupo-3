@@ -2,10 +2,11 @@
 	import { Router, Link, Route } from "svelte-navigator";
 	import Home from "./routes/Home.svelte";
 	import Favorite from "./routes/Favorite.svelte";
+  import Options from "./components/Options.svelte";
   import Swal from 'sweetalert2';
   import { isCatLover } from "./store.js";
 
-/*   Swal.fire({
+  Swal.fire({
       title: 'Bienvenido! \nDinos que tipo de persona eres!',
       showDenyButton: true,
       showCancelButton: false,
@@ -19,7 +20,7 @@
       Swal.fire('Bienvenido DogLover! \n Tenemos los mejores perritos para ti!', '', 'success');
       isCatLover.set(0);
     }
-  }) */
+  })
 </script>
 
 <Router>
@@ -34,8 +35,11 @@
            <li class="dropdown" id="first-link">
             <p><Link to="/">Home</Link></p>
           </li>
-          <li class="dropdown" id="second-link">
+          <li class="dropdown" id="first-link">
             <p><Link to="favorites">Favoritos</Link></p>
+          </li>
+          <li class="dropdown" id="second-link">
+            <p><Options /></p>
           </li>
         </ul>
       </div>

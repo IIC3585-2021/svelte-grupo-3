@@ -23,3 +23,4 @@
 ## Referencias
 
 - https://www.npmjs.com/package/svelte-navigator#installation
+- https://sweetalert2.github.io/
