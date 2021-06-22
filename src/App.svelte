@@ -5,7 +5,7 @@
   import Swal from 'sweetalert2';
   import { isCatLover } from "./store.js";
 
-/*   Swal.fire({
+  Swal.fire({
       title: 'Bienvenido! \nDinos que tipo de persona eres!',
       showDenyButton: true,
       showCancelButton: false,
@@ -19,7 +19,7 @@
       Swal.fire('Bienvenido DogLover! \n Tenemos los mejores perritos para ti!', '', 'success');
       isCatLover.set(0);
     }
-  }) */
+  })
 </script>
 
 <Router>
