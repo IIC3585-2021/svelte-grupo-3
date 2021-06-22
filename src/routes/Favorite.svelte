@@ -18,7 +18,9 @@
 </div>
 <style>
 h1{
-
+    width: 100%;
+    font-size:20px;
+    text-align: center;
 }
 .favPanel{
     display: flex;
