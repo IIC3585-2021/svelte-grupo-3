@@ -2,8 +2,6 @@
 	import AddFavorite from "../components/AddFavorite.svelte";
 	import { isCatLover } from "../store.js";
 
-	import FavoriteCard from "../components/FavoriteCard.svelte";
-
 	let disabledFavorite = true;
 	let isCatLoverValue;
 	isCatLover.subscribe(value => {
@@ -12,12 +10,13 @@
 
 	let data = {};
 	const getExcited = () => {
-		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
-		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
-		fetch("https://api.thecatapi.com/v1/images/search?category_ids=4", { headers: {"x-api-key" : key} })
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://random.dog/woof.json";
+		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "";
+		fetch(path, { headers: {"x-api-key" : key} })
     	.then((response) => {
       		return response.json()
     	}).then((json) => {
+			console.log(json)
 			data = {
 				url: json[0].url,
 				emotion: "Emocionante",
@@ -85,7 +84,7 @@
 	  	/>
         <div class="card-header">
             <div class="card-title">¿Cómo estuvo tu día?</div>
-            <AddFavorite data = {data} disabled = { disabledFavorite }/>
+            <AddFavorite data = {data} bind:disabled = { disabledFavorite }/>
         </div>
 		<p class="card-subtitle">
 			Tenemos un gatito para ti

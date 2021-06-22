@@ -12,7 +12,6 @@
         }
         favorites.update(store => store = [...store, new_cat_obj]);
         disabled = true;
-        
     }
 </script>
 
