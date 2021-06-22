@@ -2,6 +2,7 @@
 	import { Router, Link, Route } from "svelte-navigator";
 	import Home from "./routes/Home.svelte";
 	import Favorite from "./routes/Favorite.svelte";
+  import Options from "./components/Options.svelte";
   import Swal from 'sweetalert2';
   import { isCatLover } from "./store.js";
 
@@ -27,11 +28,10 @@
 	<nav>
 		<Link to="/">Home</Link>
 		<Link to="favorites">Favoritos</Link>
+    <Options />
 	</nav>
 	<main>
-		<Route path="/">
-			<Home />
-		</Route>
+		<Route path="/" component = {Home} />
 		<Route path="favorites" component={Favorite} />
 	</main>
 </Router>

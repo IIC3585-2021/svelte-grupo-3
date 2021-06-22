@@ -31,7 +31,7 @@
     	});
 	}
 	const getSad = () => {
-		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://random.dog/woof.json";
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=2" : "https://random.dog/woof.json";
 		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
 		fetch(path, params)
         .then((response) => {
@@ -52,7 +52,7 @@
         });
 	}
 	const getRelax = () => {
-		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://random.dog/woof.json";
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=1" : "https://random.dog/woof.json";
 		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
 		fetch(path, params)
         .then((response) => {
@@ -73,7 +73,7 @@
         });
 	}
 	const getIntense = () => {
-		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://random.dog/woof.json";
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?mime_types=gif" : "https://random.dog/woof.json";
 		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
 		fetch(path, params)
         .then((response) => {
