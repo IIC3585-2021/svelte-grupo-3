@@ -8,11 +8,21 @@
 </script>
 
 <div class="favorite">
-    <h1>Tus favoritos de hoy</h1>
-    {#each favorite_cats as favoriteCat}
+    <h1>Tus favoritos</h1>
+    <div class= "favPanel">
+        {#each favorite_cats as favoriteCat}
         <FavoriteCard favorite = {favoriteCat}/>
     {/each}
+    </div>
+
 </div>
 <style>
+h1{
+
+}
+.favPanel{
+    display: flex;
+    flex-wrap: wrap;
+}
 </style>
   

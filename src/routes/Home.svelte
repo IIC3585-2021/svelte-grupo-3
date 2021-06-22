@@ -2,27 +2,29 @@
 	import AddFavorite from "../components/AddFavorite.svelte";
 	import { isCatLover } from "../store.js";
 
+	import FavoriteCard from "../components/FavoriteCard.svelte";
+
+	let disabledFavorite = true;
 	let isCatLoverValue;
 	isCatLover.subscribe(value => {
 		isCatLoverValue = value;
 	});
 
-	let data= {
-		url: "", 
-		emotion: ""
-	};
+	let data = {};
 	const getExcited = () => {
 		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
 		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
 		fetch("https://api.thecatapi.com/v1/images/search?category_ids=4", { headers: {"x-api-key" : key} })
-    .then((response) => {
-      return response.json()
-    }).then((json) => {
-      data = {
+    	.then((response) => {
+      		return response.json()
+    	}).then((json) => {
+			data = {
 				url: json[0].url,
-				emotion: "Emocionante"
+				emotion: "Emocionante",
+				style: "color: orange"
 			}
-    });
+			disabledFavorite = false;
+    	});
 	}
 	const getSad = () => {
 		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
@@ -34,8 +36,10 @@
         }).then((json) => {
 			data = {
 				url: json[0].url,
-				emotion: "Tristecillo"
+				emotion: "Tristecillo",
+				style: "color: blue"
 			}
+			disabledFavorite = false;
         });
 	}
 	const getRelax = () => {
@@ -49,8 +53,10 @@
         }).then((json) => {
 			data = {
 				url: json[0].url,
-				emotion: "Relajado"
+				emotion: "Relajado",
+				style: "color: purple"
 			}
+			disabledFavorite = false;
         });
 	}
 	const getIntense = () => {
@@ -63,8 +69,10 @@
         }).then((json) => {
 			data = {
 				url: json[0].url,
-				emotion: "Intenso"
+				emotion: "Intenso",
+				style: "color: red"
 			}
+			disabledFavorite = false;
         });
 	}
 </script>
@@ -77,7 +85,7 @@
 	  	/>
         <div class="card-header">
             <div class="card-title">¿Cómo estuvo tu día?</div>
-            <AddFavorite cat_data = {data}/>
+            <AddFavorite data = {data} disabled = { disabledFavorite }/>
         </div>
 		<p class="card-subtitle">
 			Tenemos un gatito para ti
