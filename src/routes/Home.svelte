@@ -16,7 +16,12 @@
     	.then((response) => {
       		return response.json()
     	}).then((json) => {
-			// TODO: Si llega un mp4, que se haga de nuevo el fetch
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getExcited();
+					return;
+				}
+			} 
 			data = {
 				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Emocionante",
@@ -32,6 +37,12 @@
         .then((response) => {
           return response.json()
         }).then((json) => {
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getSad();
+					return;
+				}
+			} 
 			data = {
 				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Tristecillo",
@@ -47,6 +58,12 @@
         .then((response) => {
           return response.json()
         }).then((json) => {
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getRelax();
+					return;
+				}
+			} 
 			data = {
 				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Relajado",
@@ -62,6 +79,12 @@
         .then((response) => {
           return response.json()
         }).then((json) => {
+			if (isCatLoverValue == 0) {
+				if (json.url.includes(".mp4")){
+					getIntense();
+					return;
+				}
+			} 
 			data = {
 				url: isCatLoverValue == 1 ? json[0].url : json.url,
 				emotion: "Intenso",
