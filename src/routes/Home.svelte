@@ -4,11 +4,13 @@
 
 	let disabledFavorite = true;
 	let isCatLoverValue;
-	isCatLover.subscribe(value => {
-		isCatLoverValue = value;
-	});
+	let animal;
+    isCatLover.subscribe(value => {
+        isCatLoverValue = value;
+        animal = isCatLoverValue == 1 ? "gatito" : "perrito";
+    });
 
-	let data = {};
+	let data = {url: "https://images.ctfassets.net/cnu0m8re1exe/7sLmeD1tcL4UoIm0BjNaLh/22a9f42a4315361db96470f50b178e86/Dog-and-Cat.jpg"};
 	const getExcited = () => {
 		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://random.dog/woof.json";
 		const params = isCatLoverValue == 1 ? { headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"} } : {};
@@ -106,7 +108,7 @@
             <AddFavorite data = {data} bind:disabled = { disabledFavorite }/>
         </div>
 		<p class="card-subtitle">
-			Tenemos un gatito para ti
+			Tenemos un {animal} para ti
         </p>
 		<div class="card-actions">
 			<button on:click={getExcited} style={"color: orange"}>

@@ -82,6 +82,7 @@
 /* navigation link with right border */
 #first-link
 {
+  padding-top: 10px;
   padding-right:6px;
   border-right:solid 1px #ccc;
 }
