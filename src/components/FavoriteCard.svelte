@@ -4,21 +4,29 @@
 </script>
 
 <div class="favorite-card">
+	<div class="card-body">
 	<div class="card-header">
 		<div class="card-title">
-			El día {favorite.date} tu día estaba 
+			El {favorite.date.getDate()  + "-" + (favorite.date.getMonth()+1) + "-" + favorite.date.getFullYear() + 
+			" a las "+ favorite.date.getHours() + ":" + favorite.date.getMinutes()} tu día estaba 
 			<p class="card-emotion" style={favorite.style}>{favorite.emotion}</p>
 		</div>
 		<DeleteFavorite data = {favorite}/>
 	</div>
 
+	<div class="card-image">
     <img
     src={favorite.url}
     alt=""
       />
+	</div>
+	</div>
 </div>
 
 <style>
+	.card-body{
+		align-content: center;
+	}
 	.favorite-card{
 		margin: 10px auto;
         padding: 15px;
@@ -30,7 +38,7 @@
         justify-content: space-between;
     }
     .card-title {
-        font-size: 22px;
+        font-size: 18px;
 		font-weight: 200;
         margin: 0 15px;
         text-align: left;
@@ -39,12 +47,16 @@
 		margin: 10px 0;
 		text-transform: uppercase;
 	}
+	.card-image{
+		width: 100%;
+		align-items: center;
+	}
 	img{
-      	height: 250px;
-		width: 90%;
-		margin:auto;
-		align-self: center;
-		padding: 10;
+      	max-height: 250px;
+		max-width: 350px;
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
 	}
 
 </style>
