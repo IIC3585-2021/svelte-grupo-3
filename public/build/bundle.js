@@ -3840,18 +3840,18 @@ var app = (function () {
     			create_component(deletefavorite.$$.fragment);
     			t5 = space();
     			img = element("img");
-    			attr_dev(p, "class", "card-emotion svelte-cipypr");
+    			attr_dev(p, "class", "card-emotion svelte-v4lm6z");
     			attr_dev(p, "style", p_style_value = /*favorite*/ ctx[0].style);
     			add_location(p, file$2, 9, 3, 238);
-    			attr_dev(div0, "class", "card-title svelte-cipypr");
+    			attr_dev(div0, "class", "card-title svelte-v4lm6z");
     			add_location(div0, file$2, 7, 2, 169);
-    			attr_dev(div1, "class", "card-header svelte-cipypr");
+    			attr_dev(div1, "class", "card-header svelte-v4lm6z");
     			add_location(div1, file$2, 6, 1, 141);
     			if (img.src !== (img_src_value = /*favorite*/ ctx[0].url)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			attr_dev(img, "class", "svelte-cipypr");
+    			attr_dev(img, "class", "svelte-v4lm6z");
     			add_location(img, file$2, 14, 4, 368);
-    			attr_dev(div2, "class", "favorite-card svelte-cipypr");
+    			attr_dev(div2, "class", "favorite-card svelte-v4lm6z");
     			add_location(div2, file$2, 5, 0, 112);
     		},
     		l: function claim(nodes) {

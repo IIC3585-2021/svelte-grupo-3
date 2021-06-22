@@ -24,6 +24,9 @@
         padding: 15px;
 		max-width: 350px;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.card-header {
         display: flex;
