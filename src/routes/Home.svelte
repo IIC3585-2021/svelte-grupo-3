@@ -14,48 +14,54 @@
 	const getExcited = () => {
 		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
 		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
-		fetch("https://api.thedogapi.com/v1/images/search?category_ids=1", { headers: {"x-api-key" : key} })
+		fetch("https://api.thecatapi.com/v1/images/search?category_ids=4", { headers: {"x-api-key" : key} })
     .then((response) => {
       return response.json()
     }).then((json) => {
-			console.log(json)
       data = {
 				url: json[0].url,
 				emotion: "Emocionante"
 			}
     });
 	}
-	const get_sad_cat = () => {
+	const getSad = () => {
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
+		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
 		fetch("https://api.thecatapi.com/v1/images/search?category_ids=2", 
         {headers: {"x-api-key" : key}})
         .then((response) => {
           return response.json()
         }).then((json) => {
-			cat_data = {
+			data = {
 				url: json[0].url,
 				emotion: "Tristecillo"
 			}
         });
 	}
-	const get_relax_cat = () => {
+	const getRelax = () => {
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
+		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
+
 		fetch("https://api.thecatapi.com/v1/images/search?category_ids=1", 
         {headers: {"x-api-key" : key}})
         .then((response) => {
           return response.json()
         }).then((json) => {
-			cat_data = {
+			data = {
 				url: json[0].url,
 				emotion: "Relajado"
 			}
         });
 	}
-	const get_intense_cat = () => {
+	const getIntense = () => {
+		const path = isCatLoverValue == 1 ? "https://api.thecatapi.com/v1/images/search?category_ids=4" : "https://api.thedogapi.com/v1/images/search?category_ids=4";
+		const key = isCatLoverValue == 1 ? "297ece98-a6ac-419d-9d86-fbe4c3ccdeac" : "a372dd1f-6009-4104-a808-062d5637dca8";
 		fetch("https://api.thecatapi.com/v1/images/search?mime_types=gif", 
         {headers: {"x-api-key" : key}})
         .then((response) => {
           return response.json()
         }).then((json) => {
-			cat_data = {
+			data = {
 				url: json[0].url,
 				emotion: "Intenso"
 			}
@@ -64,31 +70,32 @@
 </script>
 
 <main>
-	
 	<div class="card">
 		<img
 		src={data.url}
 		alt=""
 	  	/>
-		<AddFavorite cat_data = {data}/>
-		<div class="card-title">¿Cómo estuvo tu día?</div>
-		<div class="card-subtitle">
+        <div class="card-header">
+            <div class="card-title">¿Cómo estuvo tu día?</div>
+            <AddFavorite cat_data = {data}/>
+        </div>
+		<p class="card-subtitle">
 			Tenemos un gatito para ti
-		</div>
+        </p>
 		<div class="card-actions">
-			<button on:click={getExcited}>
+			<button on:click={getExcited} style={"color: orange"}>
 			 Emocionante 
 			</button>
-			<button on:click={get_sad_cat}>
+			<button on:click={getSad} style={"color: blue"}>
 			  Tristecillo
 			</button>
-			<button on:click={get_relax_cat}>
+			<button on:click={getRelax} style={"color: purple"}>
 			  Relajado
 			</button>
-			<button on:click={get_intense_cat}>
+			<button on:click={getIntense} style={"color: red"}>
 			  Intenso
 			</button>
-		  </div>
+		</div>
 	</div>
 </main>
 <style>
@@ -100,15 +107,35 @@
 	}
 	.card{
 		margin: auto;
-		border: solid;
+        padding: 15px;
 		max-width: 500px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	}
+    .card-header {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+    }
 	.card-title {
 		font-size: 30px;
-		font-weight: 100;
+		font-weight: 200;
 	}
+    .card-subtitle {
+        font-size: 22px;
+		font-weight: 200;
+        margin: 0 15px;
+        text-align: left;
+    }
+    .card-actions {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        margin-top: 10px;
+    }
 	button{
 		text-transform: uppercase;
+        font-weight: 300;
+        border: none;
 	}
 	img{
       	height: 300px;
